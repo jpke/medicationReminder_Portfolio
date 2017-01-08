@@ -195,7 +195,7 @@ const logout = () => {
 const fetchMedications = (username, password) => {
 	return (dispatch) => {
 		var url = 'https://portfolio-express.herokuapp.com/med/medication';
-		// const url = 'http://localhost:8080/med/user'
+		// const url = 'http://localhost:8080/med/medication'
 		dispatch(fetchMedicationRequest());
 		let enUserPass = btoa(username + ":" + password);
 		return fetch(url, {
@@ -227,6 +227,8 @@ const fetchMedications = (username, password) => {
 const login = (username, password) => {
 	return (dispatch) => {
 		const url = 'https://portfolio-express.herokuapp.com/med/medication';
+		// const url = 'http://localhost:8080/med/medication';
+		http://localhost:8080/
 		let enUserPass = btoa(username + ":" + password);
 		return fetch(url, {
 			method: 'GET',
@@ -260,6 +262,7 @@ const login = (username, password) => {
 const signup = (username, email, password) => {
 	return (dispatch) => {
 		const url = 'https://portfolio-express.herokuapp.com/med/user';
+		// const url = 'http://localhost:8080/med/user';
 		const req = {username, email, password};
 		return fetch(url, {
 			method: 'POST',
@@ -296,6 +299,7 @@ const submitMed = (name, time) => {
 		let medArray = getState().medications;
 		let postArray = medArray[medArray.length -1];
 		const url = 'https://portfolio-express.herokuapp.com/med/medication';
+		// const url = 'http://localhost:8080/med/medication';
 		const req = {
 			name: name,
 			days: postArray[3],
@@ -335,6 +339,7 @@ const submitMed = (name, time) => {
 const deleteMed = (medication) => {
 	return (dispatch, getState) => {
 		const url = 'https://portfolio-express.herokuapp.com/med/medication';
+		// const url = 'http://localhost:8080/med/medication';
 		const req = {
 			name: medication,
 			username: getState().username,

@@ -45,7 +45,6 @@ const getNextDayOfWeek = (date, dayOfWeek) => {
  */
 const parseTime = (time) => {
 	time = time + ":00";
-	// time =+ ":00"
 	let timeArray = time.split(":");
 	return timeArray;
 }
@@ -93,6 +92,7 @@ const convertUnix = (unixTime) => {
  * @return {object} state - The state of the application after an action occurs.
  */
 const gameReducer = (state, action) => {
+	console.log("state: ", state)
 	let copyState = state || initialState;
 	state = Object.assign({}, copyState);
 
