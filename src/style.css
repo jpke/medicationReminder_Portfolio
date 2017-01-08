@@ -1,0 +1,53 @@
+body {
+  background: url('med.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0px;
+}
+
+.nav-pills {
+  display: flex;
+  justify-content: flex-end;
+}
+
+form {
+  max-width: 400px;
+  margin: 150px auto;
+}
+
+input {
+  margin-top: 15px;
+}
+
+#loginForm {
+  width: 400px;
+}
+
+#signupForm {
+  margin-top: 100px;
+  width: 400px;
+}
+
+#border-form {
+  border: 4px solid grey;
+  box-shadow: 8px 5px 5px black;
+  border-radius: 8px;
+  background-color: white;
+  width: 500px;
+  height: 300px;
+  padding: 40px 25px 25px 25px;
+}
+
+#border-signup {
+  border: 8px solid grey;
+  box-shadow: 8px 5px 5px black;
+  border-radius: 8px;
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  padding: 25px 25px 25px 25px;
+}
+
+

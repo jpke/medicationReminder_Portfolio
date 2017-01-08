@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.highlight {
+	background-color: blue;
+	color: white;
+}
+
+body {
+  background: url('../public/med.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0px;
+}
+
+.nav-pills {
+  display: flex;
+  justify-content: flex-end;
+}
+
+form {
+  max-width: 400px;
+  margin: 25px auto;
+}
+
+form.medicine {
+  text-align: center;
+  margin-bottom: 0;
+  border: 2px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: beige;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 60%;
+}
+
+.form-control {
+  margin-top: 15px;
+}
+
+.btn-block {
+  margin-top: 15px;
+}
+
+ul {
+  text-align: center;
+  list-style-type: none;
+}
+
+#loginForm {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+#signupForm {
+  margin-top: 100px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+#border-form {
+  border: 4px solid grey;
+  box-shadow: 8px 5px 5px black;
+  border-radius: 8px;
+  background-color: white;
+  width: 500px;
+  padding: 0px 25px 25px 25px;
+}
+
+#border-signup {
+  border: 8px solid grey;
+  box-shadow: 8px 5px 5px black;
+  border-radius: 8px;
+  background-color: white;
+  width: 500px;
+  padding: 0px 25px 25px 25px;
+}
+
+@media screen and (max-width: 899px) {
+  #border-signup {
+  width: 100%;
+  }
+  #border-form {
+  width: 100%;
+  }
+  .about, .contact {
+  width: 100%;
+  }
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 60%;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+th, td {
+  padding: 0.25rem;
+  text-align: center !important;
+  border: 1px solid #ccc;
+}
+
+tr {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+thead {
+  background: blue;
+  color: white;
+}
+
+tbody tr:nth-child(odd) {
+  background: #eee;
+}
+
+tbody tr:nth-child(even) {
+  background: beige;
+}
+
+button.delete{
+  width: 100%;
+}
+
+.about, .contact {
+  border: 4px solid grey;
+  border-radius: 5px;
+  box-shadow: 8px 5px 5px black;
+  border-radius: 8px;
+  background-color: white;
+  padding: 10px;
+  margin: 50px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 400px;
+}
+
+.logout {
+    position: absolute;
+    right: 50%;
+    margin-top: 10px;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+
+h1 {
+  text-align: center;
+}
