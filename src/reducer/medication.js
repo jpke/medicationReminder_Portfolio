@@ -44,8 +44,8 @@ const getNextDayOfWeek = (date, dayOfWeek) => {
  * @return {array} timeArray - An array of strings.
  */
 const parseTime = (time) => {
-	// time = time + ":00";
-	time =+ ":00"
+	time = time + ":00";
+	// time =+ ":00"
 	let timeArray = time.split(":");
 	return timeArray;
 }
