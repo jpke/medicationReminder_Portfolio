@@ -54,10 +54,22 @@ let createHandlers = (dispatch, props) => {
  * days' respective flags: 'highlight' if flag is true, else 'base'.
  */
 class MedForm extends Component {
-	constructor(props) {
+	constructor(props, context) {
 	    super(props);
 	    this.handlers = createHandlers(this.props.dispatch, this.props);
 	}
+	componentDidMount() {
+		if(this.props.demoMode) {
+			alert("You can see the medication reminder selection page and list in demo mode. You will need to register and log in in order to generate an email reminder.")
+		}
+	}
+	componentWillUpdate(nextProps, nextState) {
+		console.log("running ", nextProps)
+		if (!nextProps.isLoggedIn) {
+			window.location.href = "/";
+		}
+	}
+
 	render() {
 		let monClass = this.props.monFlag ? 'highlight' : 'base';
 		let tueClass = this.props.tueFlag ? 'highlight' : 'base';
@@ -102,7 +114,8 @@ let mapStateToProps = (state, props) => {
 		thuFlag: state.thuFlag,
 		friFlag: state.friFlag,
 		satFlag: state.satFlag,
-		medication: state.medications
+		medication: state.medications,
+		isLoggedIn: state.username
 	};
 };
 

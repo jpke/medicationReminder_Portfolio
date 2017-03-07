@@ -97,8 +97,8 @@ const fetchMedicationError = (error) => {
 
 const DEMO_MODE = "DEMO_MODE";
 const demoMode = () => {
-	return {
-		type: DEMO_MODE
+	return (dispatch) => {
+		dispatch(login("jp", "password"))
 	};
 };
 
@@ -111,6 +111,7 @@ const demoMode = () => {
  */
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const loginSuccess = (username, password) => {
+	console.log("login running ", username, password)
 	return {
 		type: LOGIN_SUCCESS,
 		username: username,
@@ -237,7 +238,6 @@ const fetchMedications = (username, password) => {
 const login = (username, password) => {
 	return (dispatch) => {
 		const url = rootUrl + 'medication';
-		http://localhost:8080/
 		let enUserPass = btoa(username + ":" + password);
 		return fetch(url, {
 			method: 'GET',
@@ -252,7 +252,6 @@ const login = (username, password) => {
 			return res.json();
 		})
 		.then((data) => {
-			window.location.replace('#/profile');
 			dispatch(fetchMedications(username, password));
 			return dispatch(loginSuccess(username, password));
 		})

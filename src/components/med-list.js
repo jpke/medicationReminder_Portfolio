@@ -79,7 +79,8 @@ let mapStateToProps = (state, props) => {
 		friFlag: state.friFlag,
 		satFlag: state.satFlag,
 		username: state.username,
-		password: state.password
+		password: state.password,
+		demoMode: state.demoMode
 	};
 };
 

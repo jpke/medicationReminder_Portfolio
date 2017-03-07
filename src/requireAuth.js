@@ -8,15 +8,8 @@ export default function(ComposedComponent) {
 		}
 
 		componentWillMount() {
-			if (!this.props.isLoggedIn) {
-        alert("You must be logged in or in demo mode to access this page")
-				this.context.router.push('/')
-			}
-		}
-
-		componentWillUpdate() {
-			if (!this.props.isLoggedIn) {
-        alert("You must be logged in or in demo mode to access this page")
+			if (!this.props.isLoggedIn && !this.props.demoMode) {
+        alert("You must login or select demo to access this page")
 				this.context.router.push('/')
 			}
 		}
@@ -27,8 +20,10 @@ export default function(ComposedComponent) {
 	}
 
 	function mapStateToProps(state) {
+    console.log("mapping updated state ", state.username, state.demoMode)
 		return {
-			isLoggedIn : state.isLoggedIn
+			isLoggedIn : state.username,
+      demoMode: state.demoMode
 		}
 	}
 

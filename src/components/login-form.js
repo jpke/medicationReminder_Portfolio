@@ -12,9 +12,6 @@ import Nav from './nav';
  * Login is a React Component that renders a login form.
  */
 class Login extends Component {
-	constructor(props) {
-	    super(props);
-	}
 	/**
 	 * logInSubmit() will handle the submit button event on login form.
 	 *
@@ -23,6 +20,13 @@ class Login extends Component {
 	 logInSubmit(event) {
 		event.preventDefault();
 		this.props.login(event.target.username.value, event.target.password.value);
+	}
+
+	componentWillReceiveProps(nextProps, nextState) {
+		if(!this.props.username && nextProps.username) {
+			console.log(nextProps.username)
+			window.location.href = '#/profile';
+		}
 	}
 
 	render() {
@@ -39,7 +43,7 @@ class Login extends Component {
 				        <p>No account? Click <a href="#/signup">here</a> to register!</p>
 								<p id="orDemo">or</p>
 								<div className="demoButtonContainer">
-									<button id="demo" className="btn btn-info btn-demo" onClick={() => {this.props.demo()}}>Demo</button>
+									<div id="demo" className="btn btn-info btn-demo" onClick={() => {this.props.demo()}}>Demo</div>
 								</div>
 				    </div>
 				 </form>
@@ -56,6 +60,7 @@ class Login extends Component {
  */
 function mapStateToProps(state) {
 	return {
+		username: state.username
 	};
 };
 

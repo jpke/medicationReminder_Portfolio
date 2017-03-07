@@ -21,6 +21,7 @@ const initialState = {
 	username: null,
 	password: null,
 	signUpSuccess: false,
+	demoMode: false
 }
 
 /**
@@ -44,7 +45,7 @@ const getNextDayOfWeek = (date, dayOfWeek) => {
  * @return {array} timeArray - An array of strings.
  */
 const parseTime = (time) => {
-	time = time + ":00";
+	time += ":00";
 	let timeArray = time.split(":");
 	return timeArray;
 }
@@ -92,7 +93,7 @@ const convertUnix = (unixTime) => {
  * @return {object} state - The state of the application after an action occurs.
  */
 const gameReducer = (state, action) => {
-	console.log("state: ", state)
+	console.log("state: ", state);
 	let copyState = state || initialState;
 	state = Object.assign({}, copyState);
 
@@ -204,10 +205,8 @@ const gameReducer = (state, action) => {
 	} else if (action.type === actions.DELETE_ERROR) {
 
 	} else if (action.type === actions.LOGOUT) {
-		alert("You are now logged out!");
-		window.location.replace('/medicationReminder_Portfolio/');
-	} else if (action.type === actions.DEMO_MODE) {
-
+		state.username = "";
+		state.password = "";
 	}
 
 	return state;

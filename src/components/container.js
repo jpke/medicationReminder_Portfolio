@@ -13,9 +13,6 @@ import Nav from './nav'
  * Container is a React Component that renders a MedForm Component and MedList Component.
  */
 class Container extends Component {
-	// constructor(props) {
-	//     super(props);
-	// }
 	render() {
 		return (<div>
 					<Nav />
