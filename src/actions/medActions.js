@@ -6,8 +6,8 @@
  */
 
 // toggle between production and development server urls
- // var rootUrl = 'https://portfolio-express.herokuapp.com/med/';
- const rootUrl = 'http://localhost:8080/med/'
+ var rootUrl = 'https://portfolio-express.herokuapp.com/med/';
+ // const rootUrl = 'http://localhost:8080/med/'
 
 import fetch from 'isomorphic-fetch';
 // import store from '../store';
