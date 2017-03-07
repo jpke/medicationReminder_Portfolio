@@ -5,6 +5,10 @@
  *
  */
 
+// toggle between production and development server urls
+ // var rootUrl = 'https://portfolio-express.herokuapp.com/med/';
+ const rootUrl = 'http://localhost:8080/med/'
+
 import fetch from 'isomorphic-fetch';
 // import store from '../store';
 
@@ -88,6 +92,13 @@ const fetchMedicationError = (error) => {
 	return {
 		type: FETCH_MEDICATION_ERROR,
 		error: error
+	};
+};
+
+const DEMO_MODE = "DEMO_MODE";
+const demoMode = () => {
+	return {
+		type: DEMO_MODE
 	};
 };
 
@@ -194,8 +205,7 @@ const logout = () => {
  */
 const fetchMedications = (username, password) => {
 	return (dispatch) => {
-		var url = 'https://portfolio-express.herokuapp.com/med/medication';
-		// const url = 'http://localhost:8080/med/medication'
+		const url = rootUrl + 'medication';
 		dispatch(fetchMedicationRequest());
 		let enUserPass = btoa(username + ":" + password);
 		return fetch(url, {
@@ -226,8 +236,7 @@ const fetchMedications = (username, password) => {
  */
 const login = (username, password) => {
 	return (dispatch) => {
-		const url = 'https://portfolio-express.herokuapp.com/med/medication';
-		// const url = 'http://localhost:8080/med/medication';
+		const url = rootUrl + 'medication';
 		http://localhost:8080/
 		let enUserPass = btoa(username + ":" + password);
 		return fetch(url, {
@@ -261,8 +270,7 @@ const login = (username, password) => {
  */
 const signup = (username, email, password) => {
 	return (dispatch) => {
-		const url = 'https://portfolio-express.herokuapp.com/med/user';
-		// const url = 'http://localhost:8080/med/user';
+		const url = rootUrl + 'user';
 		const req = {username, email, password};
 		return fetch(url, {
 			method: 'POST',
@@ -294,12 +302,10 @@ const signup = (username, email, password) => {
  * @return {object} action - The action and its properties.
  */
 const submitMed = (name, time) => {
-	console.log("submitMed running")
 	return (dispatch, getState) => {
 		let medArray = getState().medications;
 		let postArray = medArray[medArray.length -1];
-		const url = 'https://portfolio-express.herokuapp.com/med/medication';
-		// const url = 'http://localhost:8080/med/medication';
+		const url = rootUrl + 'medication';
 		const req = {
 			name: name,
 			days: postArray[3],
@@ -338,8 +344,7 @@ const submitMed = (name, time) => {
  */
 const deleteMed = (medication) => {
 	return (dispatch, getState) => {
-		const url = 'https://portfolio-express.herokuapp.com/med/medication';
-		// const url = 'http://localhost:8080/med/medication';
+		const url = rootUrl + 'medication';
 		const req = {
 			name: medication,
 			username: getState().username,
@@ -377,6 +382,9 @@ exports.fetchMedicationSuccess = fetchMedicationSuccess
 
 exports.FETCH_MEDICATION_ERROR = FETCH_MEDICATION_ERROR
 exports.fetchMedicationError = fetchMedicationError
+
+exports.DEMO_MODE = DEMO_MODE
+exports.demoMode = demoMode
 
 exports.LOGIN_SUCCESS = LOGIN_SUCCESS;
 exports.loginSuccess = loginSuccess

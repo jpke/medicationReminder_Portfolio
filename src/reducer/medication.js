@@ -206,6 +206,8 @@ const gameReducer = (state, action) => {
 	} else if (action.type === actions.LOGOUT) {
 		alert("You are now logged out!");
 		window.location.replace('/medicationReminder_Portfolio/');
+	} else if (action.type === actions.DEMO_MODE) {
+
 	}
 
 	return state;

@@ -1,34 +1,12 @@
 /**
  * @summary login-form.js will render a login component.
- * 
+ *
  * @require react, react-redux, ../actions/medication, ./nav.
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import actions from '../actions/medication';
+import {login, demoMode} from '../actions/medication';
 import Nav from './nav';
-
-/**
- * createHandlers() will handle all the events that can occur on this component. There is one
- * event handler called logInSubmit, which handles the click on the submit button.
- *
- * @params {function} dispatch - dispatches a payload to all registered callbacks
- * @return {object} handlers - the event handlers specified in this function.
- */
-let createHandlers = (dispatch) => {
-	/**
-	 * logInSubmit() will handle the submit button event on login form.
-	 *
-	 * @params {event} event - the submit event.
-	 */
-	let logInSubmit = (event) => {
-		event.preventDefault();
-		dispatch(actions.login(event.target.username.value, event.target.password.value));
-	}
-		return {
-		logInSubmit
-	}
-}
 
 /**
  * Login is a React Component that renders a login form.
@@ -36,20 +14,33 @@ let createHandlers = (dispatch) => {
 class Login extends Component {
 	constructor(props) {
 	    super(props);
-	    this.handlers = createHandlers(this.props.dispatch);
 	}
+	/**
+	 * logInSubmit() will handle the submit button event on login form.
+	 *
+	 * @params {event} event - the submit event.
+	 */
+	 logInSubmit(event) {
+		event.preventDefault();
+		this.props.login(event.target.username.value, event.target.password.value);
+	}
+
 	render() {
 		return (
 			<div>
 				<Nav />
 				<h1>Medication Reminder</h1>
-				<form id="loginForm" onSubmit={this.handlers.logInSubmit}>
+				<form id="loginForm" onSubmit={this.logInSubmit.bind(this)}>
 				    <div id="border-form" className="form-group">
 				    <h1>LOGIN</h1>
 				        <input type="text" name="username" id="username" className="form-control input-sm" placeholder="Username" autoComplete="off" required/>
 				        <input type="password" name="password" className="form-control input-sm" placeholder="Password" required/>
 				        <input type="submit" value="Login" className="btn btn-info btn-block"/>
 				        <p>No account? Click <a href="#/signup">here</a> to register!</p>
+								<p id="orDemo">or</p>
+								<div className="demoButtonContainer">
+									<button id="demo" className="btn btn-info btn-demo" onClick={() => {this.props.demo()}}>Demo</button>
+								</div>
 				    </div>
 				 </form>
 			</div>
@@ -61,14 +52,25 @@ class Login extends Component {
  * mapStateToProps will map the application state to the props.
  *
  * @params {object} state - the state of the application.
- * @params {object} props - the props of the component.
  * @return {object} mapped - the props of the component mapped to the state of the app;
  */
-let mapStateToProps = (state, props) => {
+function mapStateToProps(state) {
 	return {
-		//needed to use dispatch in createHandlers
 	};
 };
 
-let Container = connect(mapStateToProps)(Login);
+/**
+ * mapDispatchToProps will map the actions to component props.
+ *
+ * @params {object} dispatch - method to dispatch action to store.
+ * @return {object} mapped - actions mapped to component props
+ */
+function mapDispatchToProps(dispatch) {
+	return {
+		login: (username, password) => {dispatch(login(username, password))},
+		demo: () => {dispatch(demoMode())}
+	}
+}
+
+let Container = connect(mapStateToProps, mapDispatchToProps)(Login);
 export default Container;

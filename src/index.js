@@ -1,14 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './App';
-// import './index.css';
-//
-// ReactDOM.render(
-//   <App />,
-//   document.getElementById('root')
-// );
-
-
 /**
  * @summary index.js is the main file that will render a Board to the virtual DOM.
  *
@@ -26,14 +15,13 @@ import ContactUs from './components/contact-us';
 import LogIn from './components/login-form';
 import AboutUs from './components/about-us';
 import './index.css'
-
-console.log(`Client running in ${process.env.NODE_ENV} mode`);
+import requireAuth from './requireAuth';
 
 const routes = (
 	<Provider store={store}>
 		<Router history={hashHistory}>
 			<Route path="/" component={Home}/>
-			<Route path="/profile" component={Container} />
+			<Route path="/profile" component={requireAuth(Container)} />
 			<Route path="/login" component={LogIn} />
 			<Route path="/signup" component={SignUp} />
 			<Route path="/aboutUs" component={AboutUs} />

@@ -48,6 +48,21 @@ form.medicine {
   margin-top: 15px;
 }
 
+.demoButtonContainer {
+  width: 100%;
+  text-align: center;
+}
+
+#orDemo {
+  margin-bottom: 3px;
+}
+
+.btn-demo {
+  width: 350px;
+  height: 35px;
+  margin: 0 auto;
+}
+
 ul {
   text-align: center;
   list-style-type: none;
