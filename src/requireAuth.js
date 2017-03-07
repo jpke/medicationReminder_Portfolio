@@ -20,7 +20,6 @@ export default function(ComposedComponent) {
 	}
 
 	function mapStateToProps(state) {
-    console.log("mapping updated state ", state.username, state.demoMode)
 		return {
 			isLoggedIn : state.username,
       demoMode: state.demoMode

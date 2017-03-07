@@ -8,9 +8,9 @@
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 
-import reducers from './reducer/medication';
+import reducers from './reducers/reducer';
 console.log("store running")
 
-let store = createStore(reducers.gameReducer, applyMiddleware(thunk));
+let store = createStore(reducers.reducer, applyMiddleware(thunk));
 module.exports = store;
 //

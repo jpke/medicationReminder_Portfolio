@@ -166,6 +166,10 @@ button.delete{
   color: #337ab7;
 }
 
+.contact p {
+  margin: 3px auto;
+}
+
 .logoutButtonContainer {
   text-align: center;
 }

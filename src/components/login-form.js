@@ -5,7 +5,7 @@
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {login, demoMode} from '../actions/medication';
+import {login, demoMode} from '../actions/medActions';
 import Nav from './nav';
 
 /**
@@ -24,7 +24,6 @@ class Login extends Component {
 
 	componentWillReceiveProps(nextProps, nextState) {
 		if(!this.props.username && nextProps.username) {
-			console.log(nextProps.username)
 			window.location.href = '#/profile';
 		}
 	}

@@ -8,7 +8,6 @@
 import React, {Component}from 'react';
 import {connect} from 'react-redux';
 import Medicine from './medicine';
-// import actions from '../actions/medication';
 
 /**
  * changeToAMPM() will convert the military time input into **:** AM/PM format.
@@ -24,9 +23,14 @@ const changeToAMPM = (time) => {
 	var minutes = Number(time[1]);
 
 	// calculate
-	var timeValue = "" + ((hours >12) ? hours - 12 : hours);  // get hours
+	let midNight = hours === 0;
+	var timeValue = "" + (
+		(hours >= 12) ?
+			(hours - 12) : (hours === 0) ?
+				12 : hours
+		);  // get hours
 	timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes;  // get minutes
-	timeValue += (hours >= 12) ? " P.M." : " A.M.";  // get AM/PM
+	timeValue += (hours >= 12 && !midNight) ? " P.M." : " A.M.";  // get AM/PM
 	return timeValue;
 }
 
@@ -35,9 +39,6 @@ const changeToAMPM = (time) => {
  * the number of medicines in this.props.med (which is mapped from state.medications).
  */
 class MedList extends Component {
-	// constructor(props) {
-	//     super(props);
-	// }
 	render() {
 		let array = this.props.meds.map((med, index) => {
 			let time = changeToAMPM(med[2]);

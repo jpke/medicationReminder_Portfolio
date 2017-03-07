@@ -5,7 +5,7 @@
  *
  */
 
-import actions from '../actions/medication';
+import actions from '../actions/medActions';
 
 const initialState = {
 	medications: [],
@@ -92,8 +92,7 @@ const convertUnix = (unixTime) => {
  * @param {object} action - An action that occurs.
  * @return {object} state - The state of the application after an action occurs.
  */
-const gameReducer = (state, action) => {
-	console.log("state: ", state);
+const reducer = (state, action) => {
 	let copyState = state || initialState;
 	state = Object.assign({}, copyState);
 
@@ -212,4 +211,4 @@ const gameReducer = (state, action) => {
 	return state;
 };
 
-exports.gameReducer = gameReducer;
+exports.reducer = reducer;

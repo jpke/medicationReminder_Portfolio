@@ -111,7 +111,6 @@ const demoMode = () => {
  */
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const loginSuccess = (username, password) => {
-	console.log("login running ", username, password)
 	return {
 		type: LOGIN_SUCCESS,
 		username: username,

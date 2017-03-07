@@ -1,12 +1,12 @@
 /**
- * @summary medicine.js will render a list item with the name of the medicine, the days of 
- * the week needed, the time, and a delete button. 
- * 
+ * @summary medicine.js will render a list item with the name of the medicine, the days of
+ * the week needed, the time, and a delete button.
+ *
  * @require react, react-redux, ../actions/medication.
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import actions from '../actions/medication';
+import actions from '../actions/medActions';
 
 /**
  * createHandlers() will handle all the events that can occur on this component. There is one
@@ -17,9 +17,9 @@ import actions from '../actions/medication';
  */
 let createHandlers = (dispatch) => {
 	/**
-	 * delClick() will handle the clicking of the delete button. This will dispatch the 
+	 * delClick() will handle the clicking of the delete button. This will dispatch the
 	 * deleteButton actions which takes in the name of the medicine (event.target.name).
-	 * 
+	 *
 	 * @params {object} event - the event that occurred.
 	 */
 	let delClick = (event) => {
@@ -46,12 +46,12 @@ class Medicine extends Component {
 			return (<button key={index} type="button" disabled>{day}</button>);
 		});
 		return (
-			 <tr> 
-			    <td>{this.props.medicine}</td> 
-			    <td>{days}</td> 
-			    <td>{this.props.time}</td> 
-			    <td><button name={this.props.medicine} className="delete" onClick={this.handlers.delClick}>Delete</button></td> 
-			</tr> 
+			 <tr>
+			    <td>{this.props.medicine}</td>
+			    <td>{days}</td>
+			    <td>{this.props.time}</td>
+			    <td><button name={this.props.medicine} className="delete" onClick={this.handlers.delClick}>Delete</button></td>
+			</tr>
 		);
 	}
 }
@@ -65,7 +65,7 @@ class Medicine extends Component {
  */
 let mapStateToProps = (state, props) => {
 	return {
-		//need to map here so that dispatch() works... 
+		//need to map here so that dispatch() works...
 		//otherwise, "dispatch() is not a function" occurs
 	};
 };

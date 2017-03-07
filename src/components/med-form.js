@@ -8,7 +8,7 @@
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import actions from '../actions/medication';
+import actions from '../actions/medActions';
 
 /**
  * createHandlers() will handle all the events that can occur on this component. There are two
@@ -64,7 +64,6 @@ class MedForm extends Component {
 		}
 	}
 	componentWillUpdate(nextProps, nextState) {
-		console.log("running ", nextProps)
 		if (!nextProps.isLoggedIn) {
 			window.location.href = "/";
 		}

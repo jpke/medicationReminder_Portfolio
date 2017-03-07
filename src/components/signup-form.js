@@ -1,11 +1,11 @@
 /**
  * @summary signup-form.js will render a signup component.
- * 
+ *
  * @require react, react-redux, ../actions/medication, ./nav.
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import actions from '../actions/medication';
+import actions from '../actions/medActions';
 import Nav from './nav';
 
 /**
@@ -17,9 +17,9 @@ import Nav from './nav';
  */
 let createHandlers = (dispatch) => {
 	/**
-	 * delClick() will handle the clicking of the delete button. This will dispatch the 
+	 * delClick() will handle the clicking of the delete button. This will dispatch the
 	 * deleteButton actions which takes in the name of the medicine (event.target.name).
-	 * 
+	 *
 	 * @params {object} event - the event that occurred.
 	 */
 	let delClick = (event) => {
@@ -29,7 +29,7 @@ let createHandlers = (dispatch) => {
 	/**
 	 * signupSubmit() will handle the submit on sign up which will dispatch an action called
 	 * signup that sends the username, email, and password.
-	 * 
+	 *
 	 * @params {object} event - the event that occurred.
 	 */
 	let signupSubmit = (event) => {
