@@ -1,6 +1,6 @@
 /**
  * @summary logout.js will a button that serves as a logout button.
- * 
+ *
  * @require react, react-redux, ../actions/medication.
  */
 import React, {Component} from 'react';
@@ -17,7 +17,7 @@ let createHandlers = (dispatch) => {
 	/**
 	 * logoutClick() will handle the click event on the logout button by dispatching
 	 * the logout action.
-	 * 
+	 *
 	 * @params {object} event - the event that occurred.
 	 */
 	let logoutClick = (event) => {
@@ -39,7 +39,9 @@ class Logout extends Component {
 	}
 	render() {
 		return (
-			 <button type="button" className="logout" onClick={this.handlers.logoutClick}>Log out</button>
+			<div className="logoutButtonContainer">
+				 <button type="button" className="logout" onClick={this.handlers.logoutClick}>Log out</button>
+			 </div>
 		);
 	}
 }
@@ -53,7 +55,7 @@ class Logout extends Component {
  */
 let mapStateToProps = (state, props) => {
 	return {
-		//need to map here so that dispatch() works... 
+		//need to map here so that dispatch() works...
 		//otherwise, "dispatch() is not a function" occurs
 	};
 };

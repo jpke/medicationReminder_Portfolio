@@ -2,20 +2,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
-
-.highlight {
-	background-color: blue;
-	color: white;
-}
-
-body {
   background: url('../public/med.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  margin: 0px;
+}
+
+.highlight {
+	background-color: blue;
+	color: white;
 }
 
 .nav-pills {
@@ -161,14 +157,73 @@ button.delete{
   width: 400px;
 }
 
+.contact a {
+  color: black;
+  text-decoration: underline;
+}
+
+.contact a:hover {
+  color: #337ab7;
+}
+
+.logoutButtonContainer {
+  text-align: center;
+}
+
 .logout {
-    position: absolute;
-    right: 50%;
-    margin-top: 10px;
+    margin: 10px auto;
     border: 1px solid grey;
     border-radius: 3px;
 }
 
 h1 {
   text-align: center;
+}
+
+@media (max-width: 730px) {
+  h1 {
+    font-size: 30px;
+    margin: 0 auto;
+  }
+  #loginForm {
+    margin: 3px auto 0 auto;
+  }
+  #loginForm h1 {
+    font-size: 28px;
+  }
+  #loginForm input {
+    margin: 6px;
+  }
+}
+
+@media (max-width: 430px) and (orientation: portrait){
+  .main-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  h1 {
+    margin: 16px auto;
+  }
+  #loginForm {
+    width: 95%;
+    margin-top: 5vh;
+  }
+  .btn-demo {
+    width: 100%;
+    margin: 0 6px;
+  }
+  form.medicine, .form-group {
+    max-width: 90%;
+    width: 90%;
+  }
+  form.medicine span {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  table {
+    width: 90%;
+  }
 }

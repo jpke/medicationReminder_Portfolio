@@ -17,7 +17,7 @@ class ContactUs extends Component {
 			<div>
 				<Nav />
 			    <div className="form-group contact">
-			      <p>If you have any questions, please contact us at medi_reminder@example.com</p>
+			      <p>If you have any questions, contact us <a href="mailto:jp@jpearnest.com" title="email us">here</a></p>
 			    </div>
 		    </div>
 		);
