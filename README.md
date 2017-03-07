@@ -1,6 +1,7 @@
 # Medication Reminder App
 
 Generate an email reminder to take a medication at specific times every week. Demo it [here](https://jpke.github.io/medicationReminder_Portfolio/#/).
+  - The app may take a few seconds to register, login or demo, since the app server is on a free heroku dyno that may need to wake up.
 
 <img src="./public/medicationReminder.jpg" width="440px" />
 
