@@ -5,29 +5,8 @@
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import actions from '../actions/medActions';
+import {logout} from '../actions/medActions';
 
-/**
- * createHandlers() will handle all the events that can occur on this component.
- *
- * @params {function} dispatch - dispatches a payload to all registered callbacks
- * @return {object} handlers - the event handlers specified in this function.
- */
-let createHandlers = (dispatch) => {
-	/**
-	 * logoutClick() will handle the click event on the logout button by dispatching
-	 * the logout action.
-	 *
-	 * @params {object} event - the event that occurred.
-	 */
-	let logoutClick = (event) => {
-		event.preventDefault();
-		dispatch(actions.logout());
-	}
-	return {
-		logoutClick
-	}
-}
 
 /**
  * LogOut is a React Component that renders a button.
@@ -35,30 +14,37 @@ let createHandlers = (dispatch) => {
 class Logout extends Component {
 	constructor(props) {
 	    super(props);
-	    this.handlers = createHandlers(this.props.dispatch);
+	}
+
+	/**
+	 * logoutClick() will handle the click event on the logout button by dispatching
+	 * the logout action.
+	 *
+	 * @params {object} event - the event that occurred.
+	 */
+	logoutClick(event) {
+		event.preventDefault();
+		this.props.logout();
 	}
 	render() {
 		return (
 			<div className="logoutButtonContainer">
-				 <button type="button" className="logout" onClick={this.handlers.logoutClick}>Log out</button>
+				 <button type="button" className="btn btn-info logout" onClick={this.logoutClick.bind(this)}>Log out</button>
 			 </div>
 		);
 	}
 }
 
 /**
- * mapStateToProps will map the application state to the props.
+ * mapDispatchToProps will map the actions to component props.
  *
- * @params {object} state - the state of the application.
- * @params {object} props - the props of the component.
- * @return {object} mapped - the props of the component mapped to the state of the app;
+ * @params {object} dispatch - method to dispatch action to store.
+ * @return {object} mapped - actions mapped to component props
  */
-let mapStateToProps = (state, props) => {
+function mapDispatchToProps(dispatch) {
 	return {
-		//need to map here so that dispatch() works...
-		//otherwise, "dispatch() is not a function" occurs
-	};
-};
+		logout: () => {dispatch(logout())}
+	}
+}
 
-let Container = connect(mapStateToProps)(Logout);
-export default Container;
+export default connect(null, mapDispatchToProps)(Logout);
