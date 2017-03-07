@@ -65,7 +65,7 @@ class MedForm extends Component {
 	}
 	componentWillUpdate(nextProps, nextState) {
 		if (!nextProps.isLoggedIn) {
-			window.location.href = "/";
+			window.location.href = "#";
 		}
 	}
 

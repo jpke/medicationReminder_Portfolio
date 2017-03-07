@@ -12,10 +12,6 @@ import {logout} from '../actions/medActions';
  * LogOut is a React Component that renders a button.
  */
 class Logout extends Component {
-	constructor(props) {
-	    super(props);
-	}
-
 	/**
 	 * logoutClick() will handle the click event on the logout button by dispatching
 	 * the logout action.
