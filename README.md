@@ -22,7 +22,7 @@ The objective was to create a simple scheduler, which generates an email at set 
 
 
 ## API
-#### The server code can be found [here](https://github.com/jpke/PortfolioExpress/blob/master/medReminder.js)
+#### The server code can be found [here](https://github.com/jpke/PortfolioExpress)
 
 * POST /user :: creates new user
 * PUT /user :: updates username or password
@@ -46,7 +46,7 @@ To develop this app's server side:
 - change `rootUrl` in `src/actions.js` to `http://localhost:8080` (or other port if specified) in order to develop locally.
 - the server side is currently a submodule of a larger portfolio server
 - develop run the medication reminder express server locally:
-  - clone, configure and start the [app's express server](https://github.com/jpke/PortfolioExpress/blob/master/medReminder.js)
+  - clone, configure and start the [app's express server](https://github.com/jpke/PortfolioExpress)
   - comment or delete `app.use('/blog', blog)` and `app.use('/elearn', eLearn)`
   - comment or delete files:
     - `blog.js`
